@@ -3,14 +3,22 @@ from app.services.session import save_session
 
 
 def add_user(full_name, email, password, type):
-    user = User.create(
-        full_name=full_name,
-        email=email,
-        password=password,
-        type=type,
-    )
-    print("User created: ", user.name)
-    return user
+    
+    print("Criando usuário...", full_name, email, password, type)
+    
+    try:
+        User.get(User.email == email)
+        print("Usuário já existe")
+        return None
+    except User.DoesNotExist:
+        user = User.create(
+            full_name=full_name,
+            email=email,
+            password=password,
+            type=type,
+        )
+        print("User created: ", full_name)
+        return user
 
 
 def get_users():

@@ -19,6 +19,8 @@ class User(BaseModel):
 
     class Meta:
         table_name = "account"
+        
+    
 
 
 db.connect()

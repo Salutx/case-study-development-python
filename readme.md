@@ -1,8 +1,8 @@
 Trabalho de estudo de caso da matéria Development With Python da Faculdade UNIFECAF
 
-Para instalar as dependências do projeto:
-pip install -r requirements.txt
+Como funciona a instalação:
 
-// TODO: Retirar isso quando enviar
-Para criar o requirements:
-pip freeze > requirements.txt
+1. Instancie um novo banco de dados MySQL com o script db/database.sql
+2. Configure as variáveis de ambiente no arquivo /.env (conexão com o banco de dados)
+3. Crie um usuário administrador inicial no próprio banco de dados
+4. Inicie o projeto no diretório root /, com o comando python main.py

@@ -3,9 +3,12 @@ from tkinter import messagebox
 from app.controllers.user_controller import login_user
 from app.services.session import save_session
 from app.views.overview_view import open_overview_view
+from app.controllers.log_access_controller import create_access_log
 
 
 def open_login_view(root):
+    root = root if root else tk.Tk()
+
     root.title("Login")
     root.geometry("300x200")
 
@@ -29,6 +32,7 @@ def open_login_view(root):
         if user:
             save_session(user)
             messagebox.showinfo("Login Bem-Sucedido", f"Bem-vindo, {user.full_name}!")
+            create_access_log(user.id)
 
             for widget in root.winfo_children():
                 widget.destroy()
